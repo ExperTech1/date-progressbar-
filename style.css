@@ -1,0 +1,19 @@
+#progressBar {
+  width: 90%;
+  margin: 10px auto;
+  height: 22px;
+  background-color: #ececee;
+  border-radius: 15px;
+  overflow: hidden;
+}
+#progressBar div {
+   height: 100%;
+   text-align: right;
+   padding: 0;    /* remove padding */
+   line-height: 22px;
+   width: 0;
+   background-color: red;
+   box-sizing: border-box;
+  /* overflow: visible;**/
+   overflow: hidden;
+}
