@@ -5,8 +5,9 @@
     <title>spillcode</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-    <a href="javascript:window.top.location.reload(true)" class="continue">continue</a>
+<body >
+    <!-- <a href="javascript:window.top.location.reload(false)" class="continue">continue</a> -->
+    <input type="button" value="Refresh Button" onClick="window.location.reload(false)">
 <p>Time left: <span class="timeleft"></span></p>
 <div id="progressBar">
     <div></div>
@@ -14,12 +15,12 @@
 <button onclick="start()" id="btnInsert">Start</button>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://www.jqueryscript.net/demo/Minimal-jQuery-Any-Date-Countdown-Timer-Plugin-countdown/dest/jquery.countdown.js"></script>
+    <!-- <script type="text/javascript" src="https://www.jqueryscript.net/demo/Minimal-jQuery-Any-Date-Countdown-Timer-Plugin-countdown/dest/jquery.countdown.js"></script> -->
  <script type="text/javascript">
 
-      $(document).click(function start() {
-    function progress(timeleft, timetotal, $element) {
-
+$(document).click(function start() {
+function progress(timeleft, timetotal, $element) {
+        window.onbeforeunload = null;
         let days = parseInt(timeleft / 86400);
         let hoursLeft = parseInt(timeleft - days * 86400); 
         let hours = parseInt(hoursLeft / 3600);
@@ -34,7 +35,7 @@
         .css('width', progressBarWidth );
         $('.timeleft').html(
          `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
-        if (timeleft > 0)
+        if (timeleft < 0)
         setTimeout(() => progress(timeleft - 1, timetotal, $element), 1000);
     }
 
